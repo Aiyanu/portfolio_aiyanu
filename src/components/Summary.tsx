@@ -1,6 +1,3 @@
-import { Download } from "lucide-react";
-import React from "react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
 import TypewriterEffect from "./TypewriterEffect";
 
 export default function Summary() {
