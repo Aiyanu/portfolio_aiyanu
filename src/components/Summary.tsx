@@ -2,7 +2,14 @@ import TypewriterEffect from "./TypewriterEffect";
 
 export default function Summary() {
   return (
-    <div className="h-full flex flex-1 items-center justify-center gap-4">
+    <div className="h-full flex flex-1 items-center justify-center gap-8">
+      <div>
+        <img
+          src="/assets/profile.jpg"
+          className="rounded-full size-72"
+          alt=""
+        />
+      </div>
       <div className="flex-1">
         <h1 className="text-6xl mb-8">
           <TypewriterEffect text={"Hi, I'm Iyanu"} />

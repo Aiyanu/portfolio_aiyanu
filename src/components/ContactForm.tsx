@@ -21,11 +21,12 @@ const formSchema = z.object({
   email: z.string().email().toLowerCase(),
   name: z.string().min(2).max(50).trim(),
   subject: z.string().min(2).max(50).trim(),
-  message: z.string().min(2).max(60),
+  message: z.string().max(60),
 });
 
 const ContactForm = () => {
   const [captchaToken, setCaptchaToken] = useState<string>("");
+  const sitekey = process.env.RECAPTCHA_SITE_KEY!;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,6 +46,12 @@ const ContactForm = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // Validate captcha token before submission
+    const { name, subject, email, message } = values;
+
+    if (!name || !subject || !email || !message) {
+      toast("Please Complete all field");
+      return;
+    }
     if (!captchaToken) {
       toast("Please complete the CAPTCHA.");
       return;
@@ -74,29 +81,31 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-        {["name", "email", "subject", "message"].map((name, index) => (
-          <FormField
-            key={index}
-            control={form.control}
-            //@ts-ignore
-            name={name}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="capitalize">{name}</FormLabel>
-                <FormControl>
-                  {name === "message" ? (
-                    <Textarea placeholder={name} {...field} />
-                  ) : (
-                    <Input placeholder={name} {...field} />
-                  )}
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        ))}
+        {["name", "email", "subject", "message"].map((name, index) => {
+          return (
+            <FormField
+              key={index}
+              control={form.control}
+              //@ts-ignore
+              name={name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="capitalize">{name}</FormLabel>
+                  <FormControl>
+                    {name === "message" ? (
+                      <Textarea placeholder={name} {...field} />
+                    ) : (
+                      <Input placeholder={name} {...field} />
+                    )}
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          );
+        })}
         <ReCAPTCHA
-          sitekey={process.env.RECAPTCHA_SITE_KEY!}
+          sitekey={"6LfMfisqAAAAAC3o2Yl-z2a0PhB5U-qOgFfRCuTH"}
           onChange={handleCaptchaChange}
         />
         <Button type="submit">Submit</Button>

@@ -27,6 +27,7 @@ export async function POST(req: Request) {
   if (isValid) {
     const emailContent = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+        <h2 style="color: #333;">${subject}</h2>
         <h2 style="color: #333;">New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -52,7 +53,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: email,
       to: process.env.RECEIVER_EMAIL,
-      subject: subject,
+      subject: "Portfolio Email",
       html: emailContent,
     };
 
