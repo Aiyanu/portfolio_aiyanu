@@ -64,6 +64,7 @@ const ContactForm = () => {
             <FormField
               key={index}
               control={form.control}
+              //@ts-ignore
               name={name}
               render={({ field }) => {
                 return (
