@@ -17,24 +17,27 @@ const Footer = () => {
 
           <div className="flex items-center justify-center">
             <div className="flex space-x-8">
-              <Link
-                href="#"
+              <a
+                href="https://github.com/Aiyanu/"
                 className="text-sm text-muted-foreground hover:text-gray-600"
+                target="_blank"
               >
                 <Github />
-              </Link>
-              <Link
-                href="#"
+              </a>
+              <a
+                href="https://www.linkedin.com/in/adesanya-iyanu-96a5aa243/"
+                target="_blank"
                 className="text-sm text-muted-foreground hover:text-gray-600"
               >
                 <Linkedin />
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#"
+                target="_blank"
                 className="text-sm text-muted-foreground hover:text-gray-600"
               >
                 Built with Nextjs 14
-              </Link>
+              </a>
             </div>
           </div>
         </div>

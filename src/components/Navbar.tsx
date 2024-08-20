@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Separator } from "./ui/separator";
 import { ModeToggle } from "./ModeToggle";
+import { Download } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
@@ -11,7 +13,12 @@ const Navbar = () => {
         <Link href={"/projects"}>Projects</Link>
         <Link href={"/contact-me"}>Contact</Link>
       </div>
-      <div>
+      <div className="flex items-center space-x-4">
+        <Button variant={"outline"}>
+          <a href={"/assets/CV.pdf"} download>
+            Download CV
+          </a>
+        </Button>
         <ModeToggle />
       </div>
     </nav>

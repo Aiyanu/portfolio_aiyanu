@@ -25,6 +25,7 @@ import {
   SiReactquery,
   SiGo,
 } from "react-icons/si";
+import Underline from "../Underline";
 
 const skills = [
   {
@@ -85,6 +86,7 @@ export default function Skills() {
   return (
     <div>
       <h2 className="text-4xl space-y-4">Skills</h2>
+      <Underline />
       <div className="space-y-4">
         {skills.map((skill, index) => {
           return (
