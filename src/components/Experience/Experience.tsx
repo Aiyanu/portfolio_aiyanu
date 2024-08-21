@@ -9,6 +9,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
 const experiences = [
   {
@@ -46,8 +47,8 @@ function Experience() {
   }, [api]);
 
   return (
-    <div className="flex flex-col justify-center items-center space-y-4">
-      <Carousel setApi={setApi} className="w-full max-w-3xl max-sm:max-w-lg">
+    <MaxWidthWrapper className="flex flex-col justify-center items-center space-y-4 max-sm:px-4">
+      <Carousel setApi={setApi} className="w-full max-w-3xl max-sm:max-w-md">
         <CarouselContent>
           {experiences.map((experience, index) => (
             <CarouselItem key={index}>
@@ -60,7 +61,7 @@ function Experience() {
                   <p className="text-lg text-gray-500">
                     {experience.year_range}
                   </p>
-                  <p>{experience.summary}</p>
+                  <p className="text-sm">{experience.summary}</p>
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -72,7 +73,7 @@ function Experience() {
       <div className="py-2 text-center text-sm text-muted-foreground">
         Slide {current} of {count}
       </div>
-    </div>
+    </MaxWidthWrapper>
   );
 }
 

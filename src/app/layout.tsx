@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GlobalContextProvider } from "@/context/GlobalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,14 +27,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="min-h-[calc(100vh-100px-1px)] flex flex-col gap-10 max-sm:items-center">
-            <div>
-              {children}
-              <Toaster />
-            </div>
-            <Footer />
-          </main>
+          <GlobalContextProvider>
+            <Navbar />
+            <main className="min-h-[calc(100vh-100px-1px)] flex flex-col gap-10 max-sm:items-center">
+              <div>
+                {children}
+                <Toaster />
+              </div>
+              <Footer />
+            </main>
+          </GlobalContextProvider>
         </ThemeProvider>
       </body>
     </html>

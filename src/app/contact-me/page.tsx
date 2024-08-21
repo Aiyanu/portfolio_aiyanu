@@ -1,11 +1,15 @@
+"use client";
 import ContactWrapper from "@/components/ContactWrapper";
 import ContactForm from "@/components/ContactForm";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Underline from "@/components/Underline";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const Contact = () => {
+  const { closeMenu } = useGlobalContext();
+
   return (
-    <div className="">
+    <div onClick={closeMenu} className="">
       <div className="pl-16 max-sm:grid max-sm:place-items-center">
         <h1 className="text-4xl uppercase text-center md:text-left ">
           Contact Me
