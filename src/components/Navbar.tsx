@@ -29,19 +29,25 @@ const Navbar = () => {
         <div className="block md:hidden"></div>
         <div className="md:flex space-x-4 h-full justify-center hidden ">
           <Link
-            className={cn("select-none", { "text-gray-400": isActive === 0 })}
+            className={cn("select-none text-gray-400", {
+              "text-white": isActive === 0,
+            })}
             href={"/"}
           >
             Home
           </Link>
           <Link
-            className={cn("select-none", { "text-gray-400": isActive === 1 })}
+            className={cn("select-none text-gray-400", {
+              "text-white": isActive === 1,
+            })}
             href={"/projects"}
           >
             Projects
           </Link>
           <Link
-            className={cn("select-none", { "text-gray-400": isActive === 2 })}
+            className={cn("select-none text-gray-400", {
+              "text-white": isActive === 2,
+            })}
             href={"/contact-me"}
           >
             Contact
@@ -67,7 +73,9 @@ const Navbar = () => {
       >
         <Link
           onClick={toggleMenu}
-          className={cn("select-none", { "text-gray-400": isActive === 0 })}
+          className={cn("select-none text-gray-400", {
+            "text-white": isActive === 0,
+          })}
           href={"/"}
         >
           Home
@@ -75,7 +83,9 @@ const Navbar = () => {
         <Separator />
         <Link
           onClick={toggleMenu}
-          className={cn("select-none", { "text-gray-400": isActive === 1 })}
+          className={cn("select-none text-gray-400", {
+            "text-white": isActive === 1,
+          })}
           href={"/projects"}
         >
           Projects
@@ -83,7 +93,9 @@ const Navbar = () => {
         <Separator />
         <Link
           onClick={toggleMenu}
-          className={cn("select-none", { "text-gray-400": isActive === 2 })}
+          className={cn("select-none text-gray-400", {
+            "text-white": isActive === 2,
+          })}
           href={"/contact-me"}
         >
           Contact
