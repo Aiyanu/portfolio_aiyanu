@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <MaxWidthWrapper className=" flex flex-col justify-center h-full space-y-8">
+    <MaxWidthWrapper className=" flex flex-col justify-center h-full space-y-8 max-sm:px-16">
       <Summary />
       <Separator />
       <Skills />

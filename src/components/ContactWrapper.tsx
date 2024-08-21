@@ -6,17 +6,17 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import Underline from "./Underline";
+import { cn } from "@/lib/utils";
 
 interface ContactWrapperProps {
   children: ReactNode;
+  className?: string;
 }
 
-const ContactWrapper = ({ children }: ContactWrapperProps) => {
+const ContactWrapper = ({ children, className }: ContactWrapperProps) => {
   return (
-    <Card className="w-[500px]">
-      <CardHeader>
-        <CardTitle>Contact Me</CardTitle>
-      </CardHeader>
+    <Card className={cn("max-sm:w-full pt-8 max-sm:border-none", className)}>
       <CardContent>{children}</CardContent>
     </Card>
   );

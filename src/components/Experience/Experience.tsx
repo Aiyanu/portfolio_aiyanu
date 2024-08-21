@@ -47,7 +47,7 @@ function Experience() {
 
   return (
     <div className="flex flex-col justify-center items-center space-y-4">
-      <Carousel setApi={setApi} className="w-full max-w-3xl">
+      <Carousel setApi={setApi} className="w-full max-w-3xl max-sm:max-w-lg">
         <CarouselContent>
           {experiences.map((experience, index) => (
             <CarouselItem key={index}>

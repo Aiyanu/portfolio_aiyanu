@@ -4,10 +4,9 @@ import { Github, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className=" h-20 relative">
-      <MaxWidthWrapper>
-        <div className="border-t border-gray-200" />
-
+    <footer className=" h-16 relative">
+      <MaxWidthWrapper className="max-sm:max-w-full max-sm:p-12">
+        <div className="border-t space-y-8 border-gray-200 w-full" />
         <div className="h-full flex flex-col md:flex-row md:justify-between justify-center items-center">
           <div className="text-center md:text-left pb-2 md:pb-0">
             <p className="text-sm text-muted-foreground">

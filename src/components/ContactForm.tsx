@@ -16,6 +16,7 @@ import {
 import { Textarea } from "./ui/textarea";
 import { toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email().toLowerCase(),
@@ -26,6 +27,7 @@ const formSchema = z.object({
 
 const ContactForm = () => {
   const [captchaToken, setCaptchaToken] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const sitekey = process.env.RECAPTCHA_SITE_KEY!;
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,6 +48,7 @@ const ContactForm = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // Validate captcha token before submission
+    setIsLoading(true);
     const { name, subject, email, message } = values;
 
     if (!name || !subject || !email || !message) {
@@ -68,6 +71,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         toast("Email Sent Successfully");
+        setIsLoading(false);
         form.reset(); // Reset form after successful submission
       } else {
         toast("Email Failed to send");
@@ -108,7 +112,13 @@ const ContactForm = () => {
           sitekey={"6LfMfisqAAAAAC3o2Yl-z2a0PhB5U-qOgFfRCuTH"}
           onChange={handleCaptchaChange}
         />
-        <Button type="submit">Submit</Button>
+        <Button className="bg-blue-600" type="submit" disabled={isLoading}>
+          {isLoading ? (
+            <Loader2 className="h-8 w-8 animate-spin text-zinc-500" />
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
     </Form>
   );

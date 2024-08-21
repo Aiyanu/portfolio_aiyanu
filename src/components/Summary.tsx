@@ -6,16 +6,16 @@ export default function Summary() {
       <div>
         <img
           src="/assets/profile.jpg"
-          className="rounded-full size-72"
+          className="rounded-full size-72 max-sm:size-28"
           alt=""
         />
       </div>
-      <div className="flex-1">
-        <h1 className="text-6xl mb-8">
+      <div className="flex-1 space-y-4">
+        <h1 className="text-6xl max-sm:text-xl">
           <TypewriterEffect text={"Hi, I'm Iyanu"} />
           <span className="animate-pulse ease-in-out duration-300">_</span>
         </h1>
-        <p className="text-lg">
+        <p className="text-lg max-sm:text-base">
           A highly motivated and skilled software engineer enthusiast. Eager to
           leverage problem-solving and critical thinking skills honed through
           academic coursework and personal development. Dedicated to achieving

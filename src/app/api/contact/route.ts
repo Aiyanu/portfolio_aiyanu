@@ -1,3 +1,4 @@
+import { db } from "@/db";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -59,6 +60,7 @@ export async function POST(req: Request) {
 
     try {
       await transporter.sendMail(mailOptions);
+      await db.user.create({ data: { name, email, subject, message } });
       return NextResponse.json({ message: "Message sent successfully" });
     } catch (error) {
       return NextResponse.json({
