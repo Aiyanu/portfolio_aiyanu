@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Underline from "../Underline";
 import { Button } from "../ui/button";
 import { ArrowLeft, ArrowRight, LeafIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
@@ -31,79 +32,14 @@ const projects = [
     thumbnail: "/assets/project5.png",
   },
   {
-    name: "CocktailDB",
-    url: "https://aicocktaildb.netlify.app/",
-    thumbnail: "/assets/project1.png",
+    name: "Student Management System (WIP)",
+    // url: "https://casecobra-ai-ruby.vercel.app/",
+    // thumbnail: "/assets/project5.png",
   },
   {
-    name: "Admin Dashboard",
-    url: "https://ai-admin-dash-ui.netlify.app/",
-    thumbnail: "/assets/project2.png",
-  },
-  {
-    name: "Food Ordering app",
-    url: "https://ai-food-ordering-app.vercel.app/",
-    thumbnail: "/assets/project3.png",
-  },
-  {
-    name: "Airbnb Clone",
-    url: "https://airbnb-clone-5f1eb9.netlify.app/",
-    thumbnail: "/assets/project4.png",
-  },
-  {
-    name: "Casecobra",
-    url: "https://casecobra-ai-ruby.vercel.app/",
-    thumbnail: "/assets/project5.png",
-  },
-  {
-    name: "CocktailDB",
-    url: "https://aicocktaildb.netlify.app/",
-    thumbnail: "/assets/project1.png",
-  },
-  {
-    name: "Admin Dashboard",
-    url: "https://ai-admin-dash-ui.netlify.app/",
-    thumbnail: "/assets/project2.png",
-  },
-  {
-    name: "Food Ordering app",
-    url: "https://ai-food-ordering-app.vercel.app/",
-    thumbnail: "/assets/project3.png",
-  },
-  {
-    name: "Airbnb Clone",
-    url: "https://airbnb-clone-5f1eb9.netlify.app/",
-    thumbnail: "/assets/project4.png",
-  },
-  {
-    name: "Casecobra",
-    url: "https://casecobra-ai-ruby.vercel.app/",
-    thumbnail: "/assets/project5.png",
-  },
-  {
-    name: "CocktailDB",
-    url: "https://aicocktaildb.netlify.app/",
-    thumbnail: "/assets/project1.png",
-  },
-  {
-    name: "Admin Dashboard",
-    url: "https://ai-admin-dash-ui.netlify.app/",
-    thumbnail: "/assets/project2.png",
-  },
-  {
-    name: "Food Ordering app",
-    url: "https://ai-food-ordering-app.vercel.app/",
-    thumbnail: "/assets/project3.png",
-  },
-  {
-    name: "Airbnb Clone",
-    url: "https://airbnb-clone-5f1eb9.netlify.app/",
-    thumbnail: "/assets/project4.png",
-  },
-  {
-    name: "Casecobra",
-    url: "https://casecobra-ai-ruby.vercel.app/",
-    thumbnail: "/assets/project5.png",
+    name: "Kuda Clone (WIP)",
+    // url: "https://casecobra-ai-ruby.vercel.app/",
+    // thumbnail: "/assets/project5.png",
   },
 ];
 
@@ -116,8 +52,8 @@ export default function ProjectsList() {
     page: number = 1
   ): {
     name: string;
-    url: string;
-    thumbnail: string;
+    url?: string;
+    thumbnail?: string;
   }[] => {
     const startIndex = (page - 1) * projectsPerPage;
     const endIndex = page * projectsPerPage;
@@ -152,10 +88,17 @@ export default function ProjectsList() {
         {pagination(currentPage).map((project, index) => (
           <Link
             key={index}
-            className={`flex-1 grayscale hover:grayscale-0 border-4 border-[#bbb] rounded-md w-72 h-96 bg-cover relative hover:text-[#4b6cc1]`}
-            href={project.url}
+            className={cn(
+              `flex-1 grayscale hover:grayscale-0 border-4 border-[#bbb] rounded-md w-72 h-96 bg-cover relative hover:text-[#4b6cc1] hover:border-[#4b6cc1]`,
+              {
+                "bg-gray-800/35 dark:bg-gray-300/50": !project.thumbnail,
+              }
+            )}
+            href={project.url || "#"}
             style={{
-              backgroundImage: `url(${project.thumbnail})`,
+              background: `${
+                project.thumbnail ? `url(${project.thumbnail})` : ""
+              }`,
             }}
             target="_blank"
           >
