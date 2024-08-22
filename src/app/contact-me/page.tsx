@@ -10,10 +10,8 @@ const Contact = () => {
 
   return (
     <div onClick={closeMenu} className="">
-      <div className="pl-16 max-sm:grid max-sm:place-items-center">
-        <h1 className="text-4xl uppercase text-center md:text-left ">
-          Contact Me
-        </h1>
+      <div className="md:pl-16 max-sm:grid max-sm:place-items-center">
+        <h1 className="text-4xl uppercase text-center ">Contact Me</h1>
         <Underline className="max-sm:w-1/3" />
       </div>
       <div className="grid place-items-center">
