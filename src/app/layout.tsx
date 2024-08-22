@@ -29,7 +29,7 @@ export default function RootLayout({
         >
           <GlobalContextProvider>
             <Navbar />
-            <main className="min-h-[calc(100vh-100px-1px)] flex flex-col gap-10 max-sm:items-center">
+            <main className="min-h-[calc(100vh-100px-1px)]">
               <div>
                 {children}
                 <Toaster />

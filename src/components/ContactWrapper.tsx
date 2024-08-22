@@ -16,7 +16,7 @@ interface ContactWrapperProps {
 
 const ContactWrapper = ({ children, className }: ContactWrapperProps) => {
   return (
-    <Card className={cn("max-sm:w-full pt-8 max-sm:border-none", className)}>
+    <Card className={cn("max-sm:w-full pt-8 max-md:border-none", className)}>
       <CardContent>{children}</CardContent>
     </Card>
   );

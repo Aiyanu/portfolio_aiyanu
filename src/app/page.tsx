@@ -14,13 +14,13 @@ export default function Home() {
   return (
     <MaxWidthWrapper
       onClick={closeMenu}
-      className=" flex flex-col justify-center h-full space-y-8 max-w-lg w-4/5"
+      className=" flex flex-col justify-center h-full space-y-8 max-sm:max-w-lg max-sm:w-4/5"
     >
       <Summary />
       <Separator />
-      <Skills />
-      <Separator />
       <Experience />
+      <Separator />
+      <Skills />
     </MaxWidthWrapper>
   );
 }

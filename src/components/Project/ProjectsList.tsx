@@ -33,13 +33,13 @@ const projects = [
 export default function ProjectsList() {
   return (
     <div>
-      <div className="max-sm:grid max-sm:place-items-center">
+      <div className="max-md:grid max-md:place-items-center">
         <h1 className="text-4xl uppercase text-center md:text-left">
           Projects
         </h1>
-        <Underline className="max-sm:w-1/3" />
+        <Underline className="max-md:w-1/3" />
       </div>
-      <div className="grid lg:grid-flow-row gap-16 place-items-center max-md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-1">
+      <div className="grid lg:grid-flow-row gap-16 place-items-center max-md:grid-cols-2 lg:grid-cols-3 max-sm:grid-cols-1 px-8">
         {projects.map((project, index) => (
           <Link
             key={index}

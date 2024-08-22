@@ -14,7 +14,7 @@ export default function MaxWidthWrapper({
     <div
       onClick={onClick}
       className={cn(
-        "h-full mx-auto w-full max-w-screen-xl px-2.5 max-sm:px-0",
+        "h-full mx-auto max-sm:w-full max-w-screen-xl px-2.5 max-sm:px-0",
         className
       )}
     >

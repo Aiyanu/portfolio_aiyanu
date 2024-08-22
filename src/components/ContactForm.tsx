@@ -22,7 +22,7 @@ const formSchema = z.object({
   email: z.string().email().toLowerCase(),
   name: z.string().min(2).max(50).trim(),
   subject: z.string().min(2).max(50).trim(),
-  message: z.string().max(60),
+  message: z.string(),
 });
 
 const ContactForm = () => {
@@ -84,7 +84,10 @@ const ContactForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-4 sm:min-w-96"
+      >
         {["name", "email", "subject", "message"].map((name, index) => {
           return (
             <FormField
@@ -97,9 +100,9 @@ const ContactForm = () => {
                   <FormLabel className="capitalize">{name}</FormLabel>
                   <FormControl>
                     {name === "message" ? (
-                      <Textarea placeholder={name} {...field} />
+                      <Textarea {...field} />
                     ) : (
-                      <Input placeholder={name} {...field} />
+                      <Input {...field} />
                     )}
                   </FormControl>
                   <FormMessage />

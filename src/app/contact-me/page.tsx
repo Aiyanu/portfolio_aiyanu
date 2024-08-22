@@ -9,12 +9,12 @@ const Contact = () => {
   const { closeMenu } = useGlobalContext();
 
   return (
-    <div onClick={closeMenu} className="">
-      <div className="md:pl-16 max-sm:grid max-sm:place-items-center">
-        <h1 className="text-4xl uppercase text-center ">Contact Me</h1>
-        <Underline className="max-sm:w-1/3" />
+    <div onClick={closeMenu} className="md:mb-16">
+      <div className="md:pl-16 max-md:grid max-md:place-items-center">
+        <h1 className="text-4xl uppercase max-md:text-center ">Contact Me</h1>
+        <Underline className="max-md:w-1/3" />
       </div>
-      <div className="grid place-items-center">
+      <div className="grid place-items-center ">
         <ContactWrapper className="grid place-items-center max-sm:p-8">
           <ContactForm />
         </ContactWrapper>
