@@ -12,7 +12,7 @@ const Contact = () => {
     <div onClick={closeMenu} className="">
       <div className=" grid place-items-center">
         <h1 className="text-4xl uppercase text-center ">Contact Me</h1>
-        <Underline className="max-md:w-1/3 w-1/6" />
+        <Underline className="max-md:w-1/3 w-1/12" />
       </div>
       <div className="grid place-items-center ">
         <ContactWrapper className="grid place-items-center max-sm:p-8">

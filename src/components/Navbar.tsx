@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center space-x-8 py-6 px-8 border-b border-gray-900/90 mb-4 justify-between">
+      <nav className="flex items-center space-x-8 py-6 px-8 border-b dark:border-gray-900/90 mb-4 justify-between">
         <Button className="md:hidden" variant={"outline"} onClick={toggleMenu}>
           <Menu />
         </Button>
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="md:flex space-x-4 h-full justify-center hidden ">
           <Link
             className={cn("select-none text-gray-400", {
-              "text-white": isActive === 0,
+              "text-black dark:text-white": isActive === 0,
             })}
             href={"/"}
           >
@@ -38,7 +38,7 @@ const Navbar = () => {
           </Link>
           <Link
             className={cn("select-none text-gray-400", {
-              "text-white": isActive === 1,
+              "text-black dark:text-white": isActive === 1,
             })}
             href={"/projects"}
           >
@@ -46,7 +46,7 @@ const Navbar = () => {
           </Link>
           <Link
             className={cn("select-none text-gray-400", {
-              "text-white": isActive === 2,
+              "text-black dark:text-white": isActive === 2,
             })}
             href={"/contact-me"}
           >
@@ -74,7 +74,7 @@ const Navbar = () => {
         <Link
           onClick={toggleMenu}
           className={cn("select-none text-gray-400", {
-            "text-white": isActive === 0,
+            "text-black dark:text-white": isActive === 0,
           })}
           href={"/"}
         >
@@ -84,7 +84,7 @@ const Navbar = () => {
         <Link
           onClick={toggleMenu}
           className={cn("select-none text-gray-400", {
-            "text-white": isActive === 1,
+            "text-black dark:text-white": isActive === 1,
           })}
           href={"/projects"}
         >
@@ -94,7 +94,7 @@ const Navbar = () => {
         <Link
           onClick={toggleMenu}
           className={cn("select-none text-gray-400", {
-            "text-white": isActive === 2,
+            "text-black dark:text-white": isActive === 2,
           })}
           href={"/contact-me"}
         >
