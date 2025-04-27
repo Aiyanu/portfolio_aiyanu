@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center space-x-4">
           <Button variant={"outline"}>
-            <a href={"/assets/RESUME(1).PDF"} download>
+            <a href={"/assets/RESUME.pdf"} download>
               Download CV
             </a>
           </Button>
