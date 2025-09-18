@@ -1,5 +1,5 @@
-import {
-  HoverCard,
+// import {
+HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "../ui/hover-card";
@@ -15,10 +15,10 @@ const SkillList = ({
         <HoverCard key={index + skill.name}>
           <HoverCardTrigger>
             <div className="bg-blue-400/65 rounded-full px-3 cursor-default hover:bg-blue-300/90">
-              {skill.name}
+              <span>{skill.icon}</span>{skill.name}
             </div>
           </HoverCardTrigger>
-          <HoverCardContent className="w-24">{skill.icon}</HoverCardContent>
+          {/* <HoverCardContent className="w-24">{skill.icon}</HoverCardContent> */}
         </HoverCard>
       ))}
     </div>

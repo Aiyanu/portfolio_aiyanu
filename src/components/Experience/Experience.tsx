@@ -26,6 +26,13 @@ const experiences = [
     summary:
       "Contributed to the development of web pages for the branddrive, vac-insight, and M8S apps, focusing on improving accessibility and user experience. Successfully integrated APIs, optimizing performance through effective data structures and state management strategies. Played a key role in enhancing team efficiency by creating clear API documentation and expanded skills in Fintech applications and monorepos.",
   },
+  {
+    position: "Full Stack Software Developer",
+    company: "Xolani Health",
+    year_range: "July 2023 – October 2023",
+    summary:
+      "Designed and implemented clean, responsive UI/UX components with React and Tailwind CSS for desktop and web applications.Built and maintained scalable backend services using Node.js, Express, and NestJS, with integration into AWS and Google Cloud.Implemented secure authentication and authorization systems to protect user data.Collaborated with cross-functional teams in an agile environment to deliver high-quality, user-centric software solutions.",
+  },
 ];
 
 function Experience() {

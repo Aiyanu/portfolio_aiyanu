@@ -1,6 +1,6 @@
 import SkillList from "./SkillList";
 
-import { FaPython, FaJava, FaReact, FaAws, FaGitAlt } from "react-icons/fa";
+import { FaPython, FaJava, FaReact, FaAws, FaGitAlt, FaGoogle } from "react-icons/fa";
 import {
   SiTypescript,
   SiHtml5,
@@ -23,7 +23,7 @@ import {
   SiMongoose,
   SiGin,
   SiReactquery,
-  SiGo,
+  SiGo, SiSpringboot
 } from "react-icons/si";
 import Underline from "../Underline";
 
@@ -48,7 +48,7 @@ const skills = [
       { name: "Styled Components", icon: <SiStyledcomponents size={65} /> },
       { name: "TailwindCSS", icon: <SiTailwindcss size={65} /> },
       { name: "Redux", icon: <SiRedux size={65} /> },
-      { name: "React Query", icon: <SiReactquery size={65} /> },
+      { name: "Tanstack Query", icon: <SiReactquery size={65} /> },
     ],
   },
   {
@@ -59,6 +59,7 @@ const skills = [
       { name: "Gin", icon: <SiGin size={65} /> },
       { name: "Flask", icon: <SiFlask size={65} /> },
       { name: "Django", icon: <SiDjango size={65} /> },
+      { name: "Spring Boot", icon: <SiSpringboot size={65} /> },
     ],
   },
   {
@@ -78,6 +79,7 @@ const skills = [
     items: [
       { name: "Git", icon: <FaGitAlt size={65} /> },
       { name: "AWS", icon: <FaAws size={65} /> },
+      { name: "Google Cloud", icon: <FaGoogle size={65} /> },
     ],
   },
 ];
