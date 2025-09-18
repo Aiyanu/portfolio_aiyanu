@@ -29,7 +29,7 @@ const experiences = [
   {
     position: "Full Stack Software Developer",
     company: "Xolani Health",
-    year_range: "July 2023 – October 2023",
+    year_range: "October 2024 – Current",
     summary:
       "Designed and implemented clean, responsive UI/UX components with React and Tailwind CSS for desktop and web applications.Built and maintained scalable backend services using Node.js, Express, and NestJS, with integration into AWS and Google Cloud.Implemented secure authentication and authorization systems to protect user data.Collaborated with cross-functional teams in an agile environment to deliver high-quality, user-centric software solutions.",
   },
