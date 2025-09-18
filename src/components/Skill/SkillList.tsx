@@ -1,5 +1,5 @@
-// import {
-HoverCard,
+import {
+  HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "../ui/hover-card";
