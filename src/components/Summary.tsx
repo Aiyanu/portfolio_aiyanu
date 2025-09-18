@@ -5,7 +5,7 @@ export default function Summary() {
     <div className="h-full flex flex-1 items-center justify-center gap-8">
       <div>
         <img
-          src="/assets/profile.jpg"
+          src="/assets/image.png"
           className="rounded-full size-72 max-sm:size-28"
           alt=""
         />

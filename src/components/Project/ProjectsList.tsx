@@ -7,6 +7,11 @@ import { cn } from "@/lib/utils";
 
 const projects = [
   {
+    name: "Casecobra",
+    url: "https://casecobra-ai-ruby.vercel.app/",
+    thumbnail: "/assets/project5.png",
+  },
+  {
     name: "CocktailDB",
     url: "https://aicocktaildb.netlify.app/",
     thumbnail: "/assets/project1.png",
@@ -26,11 +31,7 @@ const projects = [
     url: "https://airbnb-clone-5f1eb9.netlify.app/",
     thumbnail: "/assets/project4.png",
   },
-  {
-    name: "Casecobra",
-    url: "https://casecobra-ai-ruby.vercel.app/",
-    thumbnail: "/assets/project5.png",
-  },
+
   {
     name: "Student Management System (WIP)",
     // url: "https://casecobra-ai-ruby.vercel.app/",
@@ -96,9 +97,8 @@ export default function ProjectsList() {
             )}
             href={project.url || "#"}
             style={{
-              background: `${
-                project.thumbnail ? `url(${project.thumbnail})` : ""
-              }`,
+              background: `${project.thumbnail ? `url(${project.thumbnail})` : ""
+                }`,
             }}
             target="_blank"
           >
