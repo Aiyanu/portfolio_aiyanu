@@ -2,7 +2,7 @@ import TypewriterEffect from "./TypewriterEffect";
 
 export default function Summary() {
   return (
-    <div className="h-full sm:flex-col flex flex-1 items-center justify-center gap-8">
+    <div className="h-full flex-col flex md:flex-row flex-1 items-center justify-center gap-8">
       <div>
         <img
           src="/assets/image.png"
