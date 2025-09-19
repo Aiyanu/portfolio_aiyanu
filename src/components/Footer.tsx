@@ -4,7 +4,7 @@ import { Github, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className=" h-16 mt-8 fixed bottom-0 w-full bg-white left-0 right-0">
+    <footer className="h-16 mt-8 fixed bottom-0 w-full left-0 right-0 bg-background border-t">
       <MaxWidthWrapper className="max-sm:max-w-full max-sm:p-12">
         <div className="border-t space-y-8 border-gray-200 w-full" />
         <div className="h-full flex flex-col md:flex-row md:justify-between justify-center items-center">
@@ -14,25 +14,13 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex space-x-4 items-center">
-            <a
-              href="https://github.com/Aiyanu/"
-              className="text-sm text-muted-foreground hover:text-gray-600"
-              target="_blank"
-            >
+            <a href="https://github.com/Aiyanu/" target="_blank" className="text-sm text-muted-foreground hover:text-gray-600">
               <Github size={20} />
             </a>
-            <a
-              href="https://www.linkedin.com/in/adesanya-iyanu-96a5aa243/"
-              target="_blank"
-              className="text-sm text-muted-foreground hover:text-gray-600"
-            >
+            <a href="https://www.linkedin.com/in/adesanya-iyanu-96a5aa243/" target="_blank" className="text-sm text-muted-foreground hover:text-gray-600">
               <Linkedin size={20} />
             </a>
-            <a
-              href="#"
-              target="_blank"
-              className="text-sm text-muted-foreground hover:text-gray-600"
-            >
+            <a href="#" target="_blank" className="text-sm text-muted-foreground hover:text-gray-600">
               Built with Nextjs 14
             </a>
           </div>
@@ -41,5 +29,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;

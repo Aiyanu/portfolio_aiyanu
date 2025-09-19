@@ -28,7 +28,7 @@ const formSchema = z.object({
 const ContactForm = () => {
   const [captchaToken, setCaptchaToken] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const sitekey = process.env.RECAPTCHA_SITE_KEY!;
+  const sitekey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
