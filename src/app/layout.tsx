@@ -30,7 +30,7 @@ export default function RootLayout({
           <GlobalContextProvider>
             <Navbar />
             <main className="min-h-[calc(100vh-100px-1px)]">
-              <div>
+              <div className="pb-16">
                 {children}
                 <Toaster />
               </div>

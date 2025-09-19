@@ -112,7 +112,7 @@ const ContactForm = () => {
           );
         })}
         <ReCAPTCHA
-          sitekey={"6LfMfisqAAAAAC3o2Yl-z2a0PhB5U-qOgFfRCuTH"}
+          sitekey={sitekey}
           onChange={handleCaptchaChange}
         />
         <Button className="bg-blue-600" type="submit" disabled={isLoading}>
