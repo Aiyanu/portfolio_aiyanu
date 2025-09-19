@@ -12,7 +12,7 @@ export default function Summary() {
       </div>
       <div className="flex-1 space-y-4">
         <h1 className="text-6xl max-sm:text-xl">
-          <TypewriterEffect text={"Hi, I'm Iyanu"} />
+          <TypewriterEffect text={"Hi, I'm Iyanu 😃"} />
           <span className="animate-pulse ease-in-out duration-300">_</span>
         </h1>
         <p className="text-lg max-sm:text-base">

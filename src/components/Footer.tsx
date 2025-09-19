@@ -22,7 +22,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/adesanya-iyanu-96a5aa243/"
+              href="https://www.linkedin.com/in/iyanuoluwapo-adesanya-96a5aa243"
               target="_blank"
               className="text-sm text-muted-foreground hover:text-gray-600"
             >
