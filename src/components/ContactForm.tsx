@@ -19,10 +19,25 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
-  email: z.string().email().toLowerCase(),
-  name: z.string().min(2).max(50).trim(),
-  subject: z.string().min(2).max(50).trim(),
-  message: z.string().min(5).max(2000).trim(),
+  email: z
+    .string()
+    .email()
+    .transform((s) => s.toLowerCase().trim()),
+  name: z
+    .string()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(50, { message: "Name must be at most 50 characters" })
+    .transform((s) => s.trim()),
+  subject: z
+    .string()
+    .min(2, { message: "Subject must be at least 2 characters" })
+    .max(50, { message: "Subject must be at most 50 characters" })
+    .transform((s) => s.trim()),
+  message: z
+    .string()
+    .min(5, { message: "Message must be at least 5 characters" })
+    .max(2000, { message: "Message must be at most 2000 characters" })
+    .transform((s) => s.trim()),
 });
 
 type FormValues = z.infer<typeof formSchema>;
