@@ -6,7 +6,7 @@ export default function Summary() {
       <div>
         <img
           src="/assets/image.png"
-          className="rounded-full md:size-72 size-28 object-cover"
+          className="rounded-full size-72  object-cover"
           alt=""
         />
       </div>

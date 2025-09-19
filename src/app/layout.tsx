@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GlobalContextProvider } from "@/context/GlobalContext";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import AppLayout from "@/layout/AppLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,23 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <GlobalContextProvider>
-            <Navbar />
-            <main className="min-h-[calc(100vh-100px-1px)]">
-              <div className="pb-16">
-                {children}
-                <Toaster />
-              </div>
-              <Footer />
-            </main>
-          </GlobalContextProvider>
-        </ThemeProvider>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );

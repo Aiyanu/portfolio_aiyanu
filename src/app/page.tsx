@@ -8,19 +8,15 @@ import Experience from "@/components/Experience/Experience";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Separator } from "@/components/ui/separator";
 import { useGlobalContext } from "@/context/GlobalContext";
+import EducationSection from "@/components/Education";
 
 export default function Home() {
-  const { closeMenu } = useGlobalContext();
   return (
-    <MaxWidthWrapper
-      onClick={closeMenu}
-      className=" flex flex-col justify-center h-full space-y-8 max-sm:max-w-lg max-sm:w-4/5"
-    >
+    <>
       <Summary />
-      <Separator />
+      <EducationSection />
       <Experience />
-      <Separator />
       <Skills />
-    </MaxWidthWrapper>
+    </>
   );
 }

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 import MaxWidthWrapper from "../MaxWidthWrapper";
+import Underline from "../Underline";
 
 const experiences = [
   {
@@ -54,33 +55,53 @@ function Experience() {
   }, [api]);
 
   return (
-    <MaxWidthWrapper className="flex flex-col justify-center items-center space-y-4 max-sm:px-4">
-      <Carousel setApi={setApi} className="w-full max-w-3xl max-sm:max-w-md">
-        <CarouselContent>
-          {experiences.map((experience, index) => (
-            <CarouselItem key={index}>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-3xl font-semibold">
-                    {experience.position}
-                  </h3>
-                  <p className="text-lg text-gray-500">@{experience.company}</p>
-                  <p className="text-lg text-gray-500">
-                    {experience.year_range}
-                  </p>
-                  <p className="text-sm">{experience.summary}</p>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+    <div className="flex flex-col items-center gap-4 py-12 ">
+      <div className="ml-auto w-full">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">Experience</h2>
+        <Underline className="w-16 -mt-4" />
+      </div>
+
+      {/* Constrain carousel to a max width and make it the positioning context */}
+      <div className="w-full">
+        <div className="relative w-full max-w-6xl mx-auto">
+          <Carousel setApi={setApi} className="w-full">
+            <CarouselContent className="gap-6">
+              {experiences.map((experience, index) => (
+                <CarouselItem key={index}>
+                  {/* ensure each card has a predictable minimum width (adjust as needed) */}
+                  <Card className="min-w-[min(720px,90vw)]">
+                    <CardContent className="p-6">
+                      <h3 className="text-3xl font-semibold">
+                        {experience.position}
+                      </h3>
+                      <p className="text-lg text-gray-500">@{experience.company}</p>
+                      <p className="text-lg text-gray-500">
+                        {experience.year_range}
+                      </p>
+                      <p className="text-sm">{experience.summary}</p>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* Buttons are absolutely positioned inside the max-width container */}
+            <CarouselPrevious
+              className="absolute -left-12 top-1/2 -translate-y-1/2 z-20
+                         rounded-full p-2 border border-gray-700 bg-[#071026]/60 backdrop-blur-sm shadow-sm"
+            />
+            <CarouselNext
+              className="absolute -right-12 top-1/2 -translate-y-1/2 z-20
+                         rounded-full p-2 border border-gray-700 bg-[#071026]/60 backdrop-blur-sm shadow-sm"
+            />
+          </Carousel>
+        </div>
+      </div>
+
       <div className="py-2 text-center text-sm text-muted-foreground">
         Slide {current} of {count}
       </div>
-    </MaxWidthWrapper>
+    </div>
   );
 }
 
