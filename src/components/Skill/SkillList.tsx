@@ -14,7 +14,7 @@ const SkillList = ({
       {skills.map((skill, index) => (
         <HoverCard key={index + skill.name}>
           <HoverCardTrigger>
-            <div className="bg-blue-400/65 rounded-full px-3 cursor-default hover:bg-blue-300/90 flex items-center gap-2">
+            <div className="bg-blue-400/65 rounded-full px-3 cursor-default hover:bg-blue-300/90 flex items-center gap-2 text-white">
               <span>{skill.icon}</span>{skill.name}
             </div>
           </HoverCardTrigger>
