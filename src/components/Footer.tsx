@@ -28,13 +28,6 @@ const Footer = () => {
             >
               <Linkedin size={20} />
             </a>
-            <a
-              href="#"
-              target="_blank"
-              className="text-sm text-muted-foreground hover:text-gray-600"
-            >
-              Built with Nextjs 14
-            </a>
           </div>
         </div>
       </MaxWidthWrapper>
