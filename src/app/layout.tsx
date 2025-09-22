@@ -23,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppLayout>{children}</AppLayout>
+        <GlobalContextProvider>
+          <AppLayout>
+            {children}
+          </AppLayout>
+        </GlobalContextProvider>
       </body>
     </html>
   );

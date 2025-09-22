@@ -8,6 +8,7 @@ import { GlobalContextProvider, useGlobalContext } from '@/context/GlobalContext
 import React from 'react'
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+    const { closeMenu } = useGlobalContext();
 
 
     return (
@@ -17,21 +18,19 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             enableSystem
             disableTransitionOnChange
         >
-            <GlobalContextProvider>
-                <MaxWidthWrapper
-                    className=" flex flex-col justify-center h-full space-y-8 max-sm:max-w-lg max-sm:w-4/5"
-                >
+            <MaxWidthWrapper
+                className=" flex flex-col justify-center h-full space-y-8 max-sm:max-w-lg max-sm:w-4/5"
+            >
 
-                    <Navbar />
-                    <main className="min-h-[calc(100vh-100px-1px)]">
-                        <div className="pb-16">
-                            {children}
-                            <Toaster />
-                        </div>
-                        <Footer />
-                    </main>
-                </MaxWidthWrapper>
-            </GlobalContextProvider>
+                <Navbar />
+                <main onClick={closeMenu} className="min-h-[calc(100vh-100px-1px)]">
+                    <div className="pb-16">
+                        {children}
+                        <Toaster />
+                    </div>
+                    <Footer />
+                </main>
+            </MaxWidthWrapper>
         </ThemeProvider>
     )
 }

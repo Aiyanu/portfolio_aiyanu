@@ -10,10 +10,10 @@ export default function MaxWidthWrapper({
   className,
   children,
 }: MaxWidthWrapperProps) {
-  const { closeMenu } = useGlobalContext();
+
   return (
     <div
-      onClick={closeMenu}
+      // onClick={closeMenu}
       className={cn(
         "h-full mx-auto max-sm:w-full max-w-screen-xl px-2.5 max-sm:px-0",
         className
