@@ -1,36 +1,83 @@
+// components/Project/ProjectsList.tsx
+"use client";
+
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import React, { useEffect, useMemo, useState } from "react";
 import Underline from "../Underline";
 import { Button } from "../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const projects = [
-  { name: "Casecobra", url: "https://casecobra-ai-ruby.vercel.app/", thumbnail: "/assets/project5.png" },
-  { name: "CocktailDB", url: "https://aicocktaildb.netlify.app/", thumbnail: "/assets/project1.png" },
-  { name: "Admin Dashboard", url: "https://ai-admin-dash-ui.netlify.app/", thumbnail: "/assets/project2.png" },
-  { name: "Food Ordering app", url: "https://ai-food-ordering-app.vercel.app/", thumbnail: "/assets/project3.png" },
-  { name: "Airbnb Clone", url: "https://airbnb-clone-5f1eb9.netlify.app/", thumbnail: "/assets/project4.png" },
-  { name: "Student Management System (WIP)" },
-  { name: "Kuda Clone (WIP)" },
+type ProjectType = "frontend" | "backend";
+
+type Project = {
+  name: string;
+  url?: string;
+  thumbnail?: string;
+  type: ProjectType;
+};
+
+const projects: Project[] = [
+  { name: "Casecobra", url: "https://casecobra-ai-ruby.vercel.app/", thumbnail: "/assets/project5.png", type: "frontend" },
+  { name: "CocktailDB", url: "https://aicocktaildb.netlify.app/", thumbnail: "/assets/project1.png", type: "frontend" },
+  { name: "Admin Dashboard", url: "https://ai-admin-dash-ui.netlify.app/", thumbnail: "/assets/project2.png", type: "frontend" },
+  { name: "Food Ordering app", url: "https://ai-food-ordering-app.vercel.app/", thumbnail: "/assets/project3.png", type: "frontend" },
+  { name: "Airbnb Clone", url: "https://airbnb-clone-5f1eb9.netlify.app/", thumbnail: "/assets/project4.png", type: "frontend" },
+  { name: "Student Management System (WIP)", type: "backend" },
+  { name: "Kuda Clone (WIP)", url: "http://localhost:5000/api-docs/", type: "backend", thumbnail: "/assets/project6.png" },
 ];
 
 export default function ProjectsList() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // If you want full pages on lg (4 cols x 3 rows) set this to 12.
+  // Tab comes from ?tab=frontend | backend. Default to frontend
+  const initialTab = (searchParams?.get("tab") === "backend" ? "backend" : "frontend") as ProjectType;
+  const [tab, setTab] = useState<ProjectType>(initialTab);
+
+  // pagination state
+  const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6;
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  // Sync local tab when user navigates with browser buttons or manually changes URL
+  useEffect(() => {
+    const qp = searchParams?.get("tab");
+    setTab(qp === "backend" ? "backend" : "frontend");
+    setCurrentPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams?.toString()]);
+
+  // Filtered projects list by active tab
+  const filtered = useMemo(() => projects.filter((p) => p.type === tab), [tab]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / projectsPerPage));
 
   const pagination = (page: number = 1) => {
     const startIndex = (page - 1) * projectsPerPage;
     const endIndex = page * projectsPerPage;
-    return projects.slice(startIndex, endIndex);
+    return filtered.slice(startIndex, endIndex);
   };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
+  }, [currentPage, tab]);
+
+  // Replace the current history entry (no new entry). Also preserve other query params.
+  const setTabAndReplaceUrl = (next: ProjectType) => {
+    // Update local state immediately for responsive UI
+    setTab(next);
+    setCurrentPage(1);
+
+    const existing = new URLSearchParams(Array.from((searchParams ?? new URLSearchParams()).entries()));
+    existing.set("tab", next);
+    const qs = existing.toString();
+    const newUrl = qs ? `${pathname}?${qs}` : pathname;
+
+    // replace -> no new history entry
+    router.replace(newUrl);
+  };
 
   return (
     <div>
@@ -39,7 +86,7 @@ export default function ProjectsList() {
         <Underline className="max-md:w-1/6 w-1/12" />
       </div>
 
-      {/* Warning banner directly under the underline */}
+      {/* Warning banner */}
       <div className="mt-4 px-4 flex justify-center">
         <div
           className="w-full max-w-4xl rounded-md border px-4 py-2 text-center text-sm font-medium
@@ -52,9 +99,49 @@ export default function ProjectsList() {
         </div>
       </div>
 
-      {/* MOBILE: vertical stacked column (visible on screens smaller than 'sm') */}
+      {/* Tabs */}
+      <div className="mt-6 px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div role="tablist" aria-label="Project categories" className="inline-flex rounded-md bg-transparent p-1">
+          <button
+            role="tab"
+            aria-selected={tab === "frontend"}
+            onClick={() => setTabAndReplaceUrl("frontend")}
+            className={cn(
+              "px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+              tab === "frontend"
+                ? "bg-gray-900 text-white dark:bg-white dark:text-black"
+                : "bg-transparent text-gray-600 dark:text-gray-300"
+            )}
+            type="button"
+          >
+            Frontend
+          </button>
+
+          <button
+            role="tab"
+            aria-selected={tab === "backend"}
+            onClick={() => setTabAndReplaceUrl("backend")}
+            className={cn(
+              "ml-2 px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+              tab === "backend"
+                ? "bg-gray-900 text-white dark:bg-white dark:text-black"
+                : "bg-transparent text-gray-600 dark:text-gray-300"
+            )}
+            type="button"
+          >
+            Backend
+          </button>
+        </div>
+
+        {/* small helper text */}
+        <div className="text-sm text-gray-500 dark:text-gray-400">
+          Showing <strong className="text-gray-800 dark:text-gray-200">{tab}</strong> projects — {filtered.length} total
+        </div>
+      </div>
+
+      {/* MOBILE: stacked list */}
       <div className="sm:hidden mt-6 px-4 flex flex-col gap-6">
-        {projects.map((project, idx) => (
+        {filtered.map((project, idx) => (
           <Link
             key={idx}
             href={project.url || "#"}
@@ -65,7 +152,6 @@ export default function ProjectsList() {
             )}
             aria-label={`Open ${project.name}`}
           >
-            {/* fixed height so items look consistent while scrolling */}
             <div
               className="w-full h-64 relative"
               style={
@@ -83,16 +169,14 @@ export default function ProjectsList() {
                 {project.name}
               </span>
               {!project.url && (
-                <span className="absolute right-4 top-4 bg-black/60 text-white text-xs px-2 py-1 rounded">
-                  WIP
-                </span>
+                <span className="absolute right-4 top-4 bg-black/60 text-white text-xs px-2 py-1 rounded">WIP</span>
               )}
             </div>
           </Link>
         ))}
       </div>
 
-      {/* DESKTOP / TABLET GRID: hidden on mobile (sm and up) */}
+      {/* DESKTOP / TABLET GRID */}
       <div className="hidden sm:grid gap-8 place-items-stretch sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-8 mt-6">
         {pagination(currentPage).map((project, index) => (
           <Link
@@ -107,7 +191,6 @@ export default function ProjectsList() {
             )}
             aria-label={`Open ${project.name}`}
           >
-            {/* aspect ratio spacer so cards stay consistent */}
             <div className="w-full h-0 pb-[100%] md:pb-[120%] lg:pb-[100%]" />
             <div
               className="absolute inset-0"
@@ -131,7 +214,7 @@ export default function ProjectsList() {
         ))}
       </div>
 
-      {/* Pagination controls (only for sm and up; hidden on mobile where we use vertical stacked list) */}
+      {/* Pagination controls (hidden on mobile) */}
       {totalPages > 1 && (
         <div className="hidden sm:flex justify-center mt-8">
           <Button
