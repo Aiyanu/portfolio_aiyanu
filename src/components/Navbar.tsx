@@ -26,7 +26,7 @@ const Navbar = () => {
           <Menu />
         </Button>
 
-        <div className="block md:hidden"></div>
+        {/* <div className="block md:hidden"></div> */}
         <div className="md:flex space-x-4 h-full justify-center hidden ">
           <Link
             className={cn("select-none text-gray-400", {
@@ -64,7 +64,7 @@ const Navbar = () => {
       </nav>
       <div
         className={cn(
-          "relative transition-transform ease-out duration-200 space-y-4 flex flex-col justify-center items-center mb-8",
+          "relative transition-transform ease-out duration-200 space-y-4 flex flex-col justify-center items-center mb-8 md:hidden",
           {
             "h-full w-full": state.isMenuOpen,
             "h-0 w-0 overflow-hidden": !state.isMenuOpen,
