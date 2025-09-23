@@ -25,7 +25,7 @@ const projects: Project[] = [
   { name: "Food Ordering app", url: "https://ai-food-ordering-app.vercel.app/", thumbnail: "/assets/project3.png", type: "frontend" },
   { name: "Airbnb Clone", url: "https://airbnb-clone-5f1eb9.netlify.app/", thumbnail: "/assets/project4.png", type: "frontend" },
   { name: "Student Management System (WIP)", type: "backend" },
-  { name: "Kuda Clone (WIP)", url: "http://localhost:5000/api-docs/", type: "backend", thumbnail: "/assets/project6.png" },
+  { name: "Kuda Clone (WIP)", url: "https://kuda-aiyanu.onrender.com/api-docs/", type: "backend", thumbnail: "/assets/project6.png" },
 ];
 
 export default function ProjectsList() {
