@@ -1,4 +1,3 @@
-// components/Project/ProjectsList.tsx
 "use client";
 
 import Link from "next/link";
@@ -24,8 +23,8 @@ const projects: Project[] = [
   { name: "Admin Dashboard", url: "https://ai-admin-dash-ui.netlify.app/", thumbnail: "/assets/project2.png", type: "frontend" },
   { name: "Food Ordering app", url: "https://ai-food-ordering-app.vercel.app/", thumbnail: "/assets/project3.png", type: "frontend" },
   { name: "Airbnb Clone", url: "https://airbnb-clone-5f1eb9.netlify.app/", thumbnail: "/assets/project4.png", type: "frontend" },
+  { name: "Kuda Clone API", url: "https://kuda-aiyanu.onrender.com/api-docs/", type: "backend", thumbnail: "/assets/project6.png" },
   { name: "Student Management System (WIP)", type: "backend" },
-  { name: "Kuda Clone (WIP)", url: "https://kuda-aiyanu.onrender.com/api-docs/", type: "backend", thumbnail: "/assets/project6.png" },
 ];
 
 export default function ProjectsList() {
