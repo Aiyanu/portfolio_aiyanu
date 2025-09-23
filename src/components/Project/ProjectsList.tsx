@@ -145,30 +145,36 @@ export default function ProjectsList() {
             key={idx}
             href={project.url || "#"}
             target={project.url ? "_blank" : undefined}
+            onClick={() => console.log("project clicked:", project.name)}
             className={cn(
-              "w-full rounded-md overflow-hidden border-4 border-[#bbb] hover:border-[#4b6cc1] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4b6cc1]",
+              "group relative rounded-md overflow-hidden border-4 border-[#bbb] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4b6cc1] hover:border-[#4b6cc1]",
               { "bg-gray-800/35 dark:bg-gray-300/50": !project.thumbnail }
             )}
             aria-label={`Open ${project.name}`}
           >
-            <div
-              className="w-full h-64 relative"
-              style={
-                project.thumbnail
-                  ? {
-                    backgroundImage: `url(${project.thumbnail})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }
-                  : undefined
-              }
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <span className="absolute left-4 bottom-4 text-lg font-semibold text-white drop-shadow">
-                {project.name}
-              </span>
+            <div className="relative w-full h-64">
+              {project.thumbnail ? (
+                <div
+                  className="absolute inset-0 bg-cover bg-center transform transition-transform duration-300 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${project.thumbnail})` }}
+                  aria-hidden="true"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800" aria-hidden="true" />
+              )}
+
+              {/* overlay now uses opacity transition and will fade OUT on hover */}
+              <div className="absolute inset-0 bg-black opacity-90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+
+              <div className="absolute left-3 bottom-3 z-20 pr-3">
+                <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg truncate max-w-[70%] transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1]">
+                  {project.name}
+                </h3>
+              </div>
+
               {!project.url && (
-                <span className="absolute right-4 top-4 bg-black/60 text-white text-xs px-2 py-1 rounded">WIP</span>
+                <span className="absolute right-3 top-3 z-20 bg-black/75 text-white text-xs px-2 py-1 rounded">WIP</span>
               )}
             </div>
           </Link>
@@ -182,8 +188,9 @@ export default function ProjectsList() {
             key={index}
             href={project.url || "#"}
             target={project.url ? "_blank" : undefined}
+            onClick={() => console.log("project clicked:", project.name)}
             className={cn(
-              "relative rounded-md overflow-hidden border-4 border-[#bbb] hover:border-[#4b6cc1] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4b6cc1]",
+              "group relative rounded-md overflow-hidden border-4 border-[#bbb] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#4b6cc1] hover:border-[#4b6cc1]",
               {
                 "bg-gray-800/35 dark:bg-gray-300/50": !project.thumbnail,
               }
@@ -203,11 +210,18 @@ export default function ProjectsList() {
                   : undefined
               }
             />
-            <span className="absolute left-3 bottom-3 text-lg md:text-2xl font-semibold text-white drop-shadow">
-              {project.name}
-            </span>
+            {/* overlays fade out on hover to reveal image */}
+            <div className="absolute inset-0 bg-black opacity-90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+
+            <div className="absolute left-3 bottom-3 z-20 pr-3">
+              <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg truncate transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1]">
+                {project.name}
+              </h3>
+            </div>
+
             {!project.url && (
-              <span className="absolute right-3 top-3 bg-black/60 text-white text-xs px-2 py-1 rounded">WIP</span>
+              <span className="absolute right-3 top-3 bg-black/75 text-white text-xs px-2 py-1 rounded">WIP</span>
             )}
           </Link>
         ))}
