@@ -106,7 +106,7 @@ function Experience() {
   return (
     <div className="flex flex-col items-center gap-4 py-12 ">
       <div className="ml-auto w-full">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">Experience</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Experience</h2>
         <Underline className="w-16 -mt-4" />
       </div>
 

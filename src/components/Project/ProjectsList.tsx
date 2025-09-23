@@ -164,7 +164,7 @@ export default function ProjectsList() {
               )}
 
               {/* overlay now uses opacity transition and will fade OUT on hover */}
-              <div className="absolute inset-0 bg-black opacity-90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-black opacity-10 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
 
               <div className="absolute left-3 bottom-3 z-20 pr-3">
@@ -211,7 +211,7 @@ export default function ProjectsList() {
               }
             />
             {/* overlays fade out on hover to reveal image */}
-            <div className="absolute inset-0 bg-black opacity-90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+            <div className="absolute inset-0 bg-black opacity-10 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
 
             <div className="absolute left-3 bottom-3 z-20 pr-3">
