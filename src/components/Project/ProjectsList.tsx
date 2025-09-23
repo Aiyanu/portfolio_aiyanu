@@ -168,7 +168,7 @@ export default function ProjectsList() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
 
               <div className="absolute left-3 bottom-3 z-20 pr-3">
-                <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg truncate max-w-[70%] transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1]">
+                <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg text-wrap transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1]">
                   {project.name}
                 </h3>
               </div>
@@ -215,7 +215,7 @@ export default function ProjectsList() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
 
             <div className="absolute left-3 bottom-3 z-20 pr-3">
-              <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg truncate transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1]">
+              <h3 className="transform text-white text-lg md:text-2xl font-extrabold drop-shadow-lg truncate transition-transform duration-200 group-hover:-translate-y-1 group-focus:-translate-y-1 group-hover:text-[#4b6cc1] group-focus:text-[#4b6cc1] w-full text-wrap">
                 {project.name}
               </h3>
             </div>
